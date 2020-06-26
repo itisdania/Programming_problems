@@ -1,3 +1,4 @@
+ /* find the frequency of a character*/
  char y[1000], character;
      int count = 0;
 
