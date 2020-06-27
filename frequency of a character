@@ -1,5 +1,5 @@
  /* find the frequency of a character*/
- 
+ int main() {
  char y[1000], character;
      int count = 0;
 
@@ -15,4 +15,4 @@
      }
 
      printf("Frequency of %c = %d\n", character, count);
-     return 0;
+     return 0; }
