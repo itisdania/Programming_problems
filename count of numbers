@@ -1,5 +1,5 @@
 /* number of numbers*/    
-
+int main() {
   char z [1000];
     int count = 0;
     printf("enter a string: ");
@@ -10,4 +10,4 @@
     printf("count %d\n",count);
 
         }
-        return 0; 
+        return 0; }
