@@ -1,0 +1,8 @@
+ puts("Enter value in euros:");
+    scanf("%d",&euro);
+   yen = euro * conversion_rate;
+
+   /* symbol of yen is accessed by /u00A5 */
+
+    printf ("Amount in Chinese yen: %f \u00A5\n",yen);
+
