@@ -1,0 +1,18 @@
+  /* maximum value will be printed off*/
+  
+  int main() {
+   int x;
+    int y;
+    int z;
+    printf("Enter a value for x:");
+    scanf("%d",&x);
+    printf("Enter a value for y:");
+    scanf("%d",&y);
+    printf("Enter a value for z:");
+    scanf("%d",&z);
+    
+    if( x>y && x>z) { printf("%d\n",x);}
+    else if (y>x && y>z) { printf("%d\n",y);}
+    else if (z>x && z>y) { printf("%d\n",z);}
+    return 0;
+}
