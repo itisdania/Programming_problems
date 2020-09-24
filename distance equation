@@ -1,0 +1,14 @@
+int main(int argc, const char * argv[]) {
+    float x1, x2, y1, y2, x;
+ 
+    printf("Enter value for x1 and x2: ");
+    scanf("%f\n",&x1);
+    scanf("%f",&x2);
+     printf("Enter value for y1 and y2: ");
+    scanf("%f\n",&y1);
+       scanf("%f",&y2);
+    x = ((x2-x1)*(x2-x1))+((y2-y1)*(y2-y1));
+    
+    printf("%f\n",sqrt(x));
+    return 0;
+}
