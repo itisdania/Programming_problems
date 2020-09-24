@@ -1,0 +1,48 @@
+
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(int argc, const char * argv[]) {
+    char num;
+    srand( time(0));
+  
+    int secret_number = rand()%5 +1;
+    
+    printf("enter a number between 1 and 5: ");
+    scanf("%d", &num);
+    while ( num < 1 || num > 5);
+    if ( num == secret_number ) { printf("correct guess\n"); }
+    else { printf("wrong guess");}
+    
+    return 0;
+}
+
+
+/* loop verison */
+
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(int argc, const char * argv[]) {
+    int num;
+    srand( time(0));
+  
+    int secret_number = rand()%5 +1;
+    
+    printf("enter a number between 1 and 5: ");
+ /*   scanf("%s", &num); if( isdigit(num)) */
+                                                
+ for( int i = 0; num != secret_number; ++i ) {scanf("%d",&num);
+        
+    }
+    
+      if ( num == secret_number ) { printf("correct guess\n"); }
+                                                 
+    return 0;
+}
+
+/* none contain the isdigit function*/ 
