@@ -1,0 +1,22 @@
+ int main() {
+   int days;
+    int years;
+    int weeks;
+    int days2;
+    
+    printf("Enter number of days: ");
+    scanf("%d",&days);
+    
+    years = days/365;
+    weeks = days % 365;
+    weeks = weeks / 7;
+    days2 = days % 365;
+    days2 = days2 % 7;
+    
+    
+    printf("Number of year(s) is %d\n",years);
+    printf("Number of weeks(s) is %d\n",weeks);
+    printf("Number of days(s) is %d\n",days2);
+       
+                   return 0;
+}
