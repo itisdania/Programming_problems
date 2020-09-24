@@ -1,0 +1,21 @@
+int main() {
+int number;
+    printf("what is your number? \n");
+    scanf("%d", &number);
+    int count3s = 0;
+    int remainder;
+    
+    /* question mentioned that it should read 7 numbers therefore it is still allowed to type in more than 7*/
+    
+    for(int i=0; i <= 7; i++) {
+    
+    /* % gives u the remainder */
+    
+        while( number > 0 ){remainder = number % 10;
+        number /= 10;
+        if(remainder ==3)
+            count3s++;
+    }
+    printf("%d\n",count3s);
+    return 0; }
+    }
