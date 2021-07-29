@@ -1,0 +1,51 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+    int start;
+    printf("Enter a start size for the llamas population: ");
+    scanf("%d", &start);
+    
+     if (start >= 10) {
+        printf("The start size is %d\n",start);
+                      }
+     else {
+    
+           do { 
+              printf("please enter a valid start population over 9: ");
+              scanf("%d", &start);
+              }
+               while (start < 10);
+              }
+
+    int end;
+    printf("Enter a end size for the llamas population: ");
+    scanf("%d", &end);
+
+     if (end > start) {
+         printf("The end size is %d\n",end);
+                      }
+     else {
+      
+     
+            do {
+               printf("please enter a valid end population over %d: ",start);
+               scanf("%d", &end);
+               }
+                while (end <= start);
+               }
+
+      
+    int years = 0;
+       
+    while (start < end){
+        
+   start = start + start/3 - start*1/4;
+      years++;
+                       }
+     
+    printf("Number of years it takes to get to population size %d is %d years\n",end ,years);
+
+}
