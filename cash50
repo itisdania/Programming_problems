@@ -1,0 +1,64 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+    double change;
+    int cents =0;
+    
+    printf("Enter change: ");
+    scanf("%lf", &change);
+    if (change > 0) 
+   {
+       cents =  round(change * 100);
+        printf("change is %f\n",change);
+   }
+     else if (change < 0)
+    {
+        do 
+        { 
+              printf("please enter a valid input over 0: ");
+              scanf("%lf", &change);
+       }
+       while (change < 0 || change == '\n'  );
+    }
+   float changeowed;
+    changeowed = cents; // starting with the full amount 
+ 
+   
+    float twentyfive = 25;
+    float ten = 10;
+    float five = 5;
+    float one = 1;
+    float count = 0;
+        
+    
+
+   while (changeowed >= twentyfive) {
+        count++;
+        changeowed -= twentyfive;
+    }
+    while (changeowed >= ten) {
+        count++;
+        changeowed -= ten;
+    }
+    while (changeowed >= five) {
+        count++;
+        changeowed -= five;
+    }
+
+    while (changeowed >= one) {
+        count++;
+        changeowed -= one;
+    }
+    
+    
+    printf("Remaning change here: %f\n", changeowed);
+    printf("You get %f coins\n", count);
+}
+
+
+
+
+
