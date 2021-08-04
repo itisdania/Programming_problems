@@ -1,0 +1,19 @@
+printing off a string,
+
+include <stdio.h>
+main (void) 
+{
+int string;
+printf("enter a string: ");
+scanf("%c",&string);
+
+// As computers usually have /0 at the end of any string, we are telling the computer that when it reaches the end of the string or (/0) end the program.
+
+for(int i =0; string[i] != '/0'; i++)    ALSO we can use for(int i =0; string[i] != strlen(string); i++)  
+
+// strlen(string) is to figure out the length of the string, we need to include string.h , try to assign strlen to a variable so you dont have to ask for its value again and again
+ {
+//here we will not add \n as we need all the letters to be next to each other to actually form a word
+printf("%c",string );
+ }
+}
