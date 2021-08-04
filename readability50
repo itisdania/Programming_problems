@@ -1,4 +1,27 @@
-ere, L is the average number of letters per 100 words in the text, and S is the average number of sentences per 100 words in the text.
+ L is the average number of letters per 100 words in the text, and S is the average number of sentences per 100 words in the text.
+ 
+ index = 0.0588 * L - 0.296 * S - 15.8
+
 
 // TODO i need to find the AVERAGE number of letters every 100 words, (how can i identify words?). Also the average number of sentances in every 100 words, maybe i can use '/0' to indentify 
-when a word ends and to indentify when a senatnce end i can try o detect any , or . 
+when a word ends and to indentify when a senatnce end i can try o detect any  or . ? !
+
+
+//Your program must prompt the user for a string of text (using get_string).
+string text = get_string("Enter Text Here: ");
+
+int wordcount =0;
+int lettercount;
+
+//TODO find L and S 
+// to count the number of letters(in 100 words)
+
+for(int i =0; wordcount < 100 ; i++)
+{
+if (text[i]= '/0') {wordcount++}
+count++
+}
+printf("wordcount : %d", wordcount)
+
+
+printf("grade %d", index)
