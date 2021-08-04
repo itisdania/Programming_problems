@@ -11,19 +11,19 @@ int main(void)
     scanf("%lf", &change);
     if (change > 0) 
    {
-       cents =  round(change * 100);
-        printf("change is %f\n",change);
+     cents =  round(change * 100);
+     printf("change is %f\n",change);
    }
      else if (change < 0)
     {
         do 
-        { 
-              printf("please enter a valid input over 0: ");
-              scanf("%lf", &change);
+      { 
+         printf("please enter a valid input over 0: ");
+         scanf("%lf", &change);
        }
        while (change < 0 || change == '\n'  );
     }
-   float changeowed;
+    float changeowed;
     changeowed = cents; // starting with the full amount 
  
    
