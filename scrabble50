@@ -29,6 +29,6 @@ int main(void)
 
     for(int i=0; i < n1; i++)    
 
-    printf("value:%d ", POINTS[i]);
-   
+  int num =  printf("value:%d ", POINTS[i]);
+   num += score1
 }
