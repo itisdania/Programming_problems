@@ -1,4 +1,4 @@
-// test 
+// a basic game of scrabble with special defined values 
 #include <ctype.h>
 #include <cs50.h>
 #include <stdio.h>
@@ -22,28 +22,30 @@ int main(void)
 
     if (score1 > score2)
     {
-        printf("Player 1 wins");
+        printf("Player 1 wins\n");
     }
     else if (score2 > score1)
     {
-        printf("Player 2 wins");
+        printf("Player 2 wins\n");
     }
     else
     {
-        printf("Tie");
+        printf("Tie\n");
     }
+    
+  
 }
 
   int compute_score(string word)
   {
   char alphabet[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-  'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}; //store alphabets
+  'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}; 
    int score = 0;
   
     for(int i=0; i < strlen(word); i++)    
 {
-    //iterate through the alphabets and points to store scores
-    for (int a = 1; a < 26; a++ )
+    //iterate through the alphabets and points to calculate scores
+    for (int a = 0; a < 26; a++ )
     {
         if (alphabet[a] == tolower(word[i]))
         {
@@ -53,4 +55,4 @@ int main(void)
         }
     }
 }
-return score;
+return score;}
