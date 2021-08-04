@@ -1,4 +1,4 @@
-/* determine the vowels*/
+/* count the number of vowels*/
 int main() {
   char z [1000];
     int count = 0;
