@@ -1,1 +1,4 @@
+ere, L is the average number of letters per 100 words in the text, and S is the average number of sentences per 100 words in the text.
 
+// TODO i need to find the AVERAGE number of letters every 100 words, (how can i identify words?). Also the average number of sentances in every 100 words, maybe i can use '/0' to indentify 
+when a word ends and to indentify when a senatnce end i can try o detect any , or . 
