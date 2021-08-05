@@ -4,6 +4,8 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+// propmpt command line input 
+
 int main(int argc, string argv[])
 {
     //checking
@@ -11,10 +13,11 @@ if (argc == 2 && isdigit(*argv[1]))
 {
 int k = atoi(argv[1]);
 
-    // check if the integer is non-negative
+// check if the integer is non-negative
     if (k < 0)
     {
     printf("Usage: ./caesar key\n");
+    // return error
     return 1;
     }
     
