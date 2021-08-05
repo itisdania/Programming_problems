@@ -1,39 +1,76 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 int main(void)
 {
-    int counter =0;
-string text = get_string("Enter Text Here: ");
-int wordcount =1;
-int lettercount= 0;
+ int counter =0;
+ string text = get_string("Enter Text Here: ");
+ int wordcount =1;
+ int lettercount= 0;
 
 //to find number of words in the sentance
-for(int i =0; text[i] != '\0' ; i++)
-{
-    if(text[i] == ' ') {wordcount++;}
-    else if (text[i]=='.' || text[i]=='?'  || text[i]=='!'){counter++;}
- }
-   
-  if (wordcount < 100) {for (int j = 0; text[j] != '\0'; j++)
-     {lettercount++;} }
-
-float L = wordcount;
-float S = counter;
-
-float index = 0.0588 * L - 0.296 * S - 15.8;
-
+ for(int i =0; text[i] != '\0' ; i++)
+ {
+    if(text[i] == ' ') 
+    {
+        
+     wordcount++;
+     
+    }
+    
+     else if (text[i]=='.' || text[i]=='?'  || text[i]=='!')
+     
+    {
+        
+     counter++;
+     
+    }
     
 
-       
-   
+     else if (text[i] != ' ' && text[i]!= ',' && text[i] != '!'&& text[i] != '.' && text[i] != '"') 
+     
+    {
+        
+     lettercount++;
+     
+    }
+    
+ }
 
-printf("index is equal to: %f\n",index);
+ float L = (lettercount*100)/ wordcount;
+ 
+ float S = (counter*100) / wordcount;
 
+ int index;
+ index = round(0.0588 * L - 0.296 * S - 15.8);
 
+ // printf("wordcount : %d\n", wordcount);
+ 
+ //printf("lettercount : %d\n", lettercount);
+ 
+ //printf("sentances : %d\n", counter);
 
-printf("wordcount : %d\n", wordcount);
-printf("lettercount : %d\n", lettercount);
-printf("sentances : %d\n", counter);
+ if (index > 16) 
+ {
+     
+  printf("Grade 16+\n");
+     
+ }
+ else if (index < 17 && index >0)
+ {
+     
+  printf("Grade %d\n",index);
+  
+ }
+ 
+ else if (index < 1) 
+ 
+ {
+     
+  printf("Before Grade 1\n");
+     
+ }
+ 
 }
