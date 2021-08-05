@@ -8,39 +8,56 @@ int main(void)
   
   int count = 0;
   long card; //here the card number will be saved
-    printf("Enter a card number: ");
-    scanf("%ld", &card);
-    printf("%ld\n",card);
+  printf("Enter a card number: ");
+  scanf("%ld", &card);
+  printf("%ld\n",card);
 
-    
   long change = card;
   long digitread =card;
    // the do-while is accurate now
    
-   
+   int sum=0;
+   int sum1 =0;
   long replace = digitread;
   int counter = count;
     do
     {
-        /* Remove last digit of 'num' */
+     /* Remove last digit of 'num' */
     change /= 10;
     count++;
     } 
-        
     while(change != 0);
-    int i =0;
     
-       
+    
+    int i =1;
+    
      do
      {
-        
      printf("last digits: %ld\n", digitread);
      replace = digitread /= 10;
      replace %= 10;
      printf("last last last digits: %ld\n", replace);
-      i++;
-      
-      }
+          printf("coressponding i value: %d\n", i);
+
+     i++;
+     // this right here allows us to alternate between bits in an int 
+     if (i%2==0) {
+         sum+=(replace*2);
+         
+     }
+     else  {sum1 +=replace;}}
+     
+     
+     while( i < count );
+int first number ;
+
+     printf("Total digits: %d\n", count);
+     printf("sum: %d\n", sum);
+     printf("sum1: %d\n", sum1);
+}
+         
+   
+
        
      while( i < count-1 );
 
