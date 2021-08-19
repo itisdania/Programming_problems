@@ -1,0 +1,138 @@
+#include "helpers.h"
+#include <stdio.h>
+#include <math.h>
+
+// Convert image to grayscale
+void grayscale(int height, int width, RGBTRIPLE image[height][width])
+{
+     int greyavg;
+     for (int i = 0; i < width; i++)
+     {
+        for (int j = 0; j < height; j++)
+        
+        { int red = image[i][j].rgbtRed;
+          int blue = image[i][j].rgbtBlue;
+          int green = image[i][j].rgbtGreen;
+            //convert to float so we can round up sucessfully 
+          greyavg = round(((float)red + (float)blue + (float)green )/3);
+          
+           image[i][j].rgbtRed =image[i][j].rgbtBlue=image[i][j].rgbtGreen = greyavg;
+          
+        }
+         
+        }     
+
+}
+int limit(int RGB)
+{
+    if (RGB > 255)
+    {
+        RGB = 255;
+    }
+    return RGB;
+}
+// Convert image to sepia
+void sepia(int height, int width, RGBTRIPLE image[height][width])
+{
+    
+    for (int i = 0; i < width; i++)
+    {
+        for (int j = 0; j < height; j++)
+        
+        {
+            
+            int red = image[i][j].rgbtRed;
+            int blue = image[i][j].rgbtBlue;
+            int green = image[i][j].rgbtGreen;
+            //convert to float so we can round
+            int sepiaBlue = limit(round(0.272 * red + 0.534 * green + 0.131 * blue));
+            int sepiaGreen = limit(round(0.349 * red + 0.686 * green + 0.168 * blue));
+            int sepiaRed = limit(round(0.393 * red + 0.769 * green + 0.189 * blue));
+
+            image[i][j].rgbtBlue = sepiaBlue;
+            image[i][j].rgbtGreen = sepiaGreen;
+            image[i][j].rgbtRed = sepiaRed;
+        }
+    }
+}
+
+// Reflect image horizontally
+void reflect(int height, int width, RGBTRIPLE image[height][width])
+{
+    //use of a temporary array to swap values
+    int rgb[3];
+    for (int j = 0; j < height; j++)
+    {
+        for (int i = 0; i < width / 2; i++)
+        {
+             rgb[0] = image[j][i].rgbtBlue;
+             rgb[1] = image[j][i].rgbtGreen;
+             rgb[2] = image[j][i].rgbtRed;
+
+            // swap pixels with the ones on the opposite side of the picture and viceversa
+            image[j][i].rgbtBlue = image[j][width - i - 1].rgbtBlue;
+            image[j][i].rgbtGreen = image[j][width - i - 1].rgbtGreen;
+            image[j][i].rgbtRed = image[j][width - i - 1].rgbtRed;
+
+            image[j][width - i - 1].rgbtBlue = rgb[0];
+            image[j][width - i - 1].rgbtGreen = rgb[1];
+            image[j][width - i - 1].rgbtRed = rgb[2];
+        }
+    }
+}
+
+// Blur image
+void blur(int height, int width, RGBTRIPLE image[height][width])
+{
+    //create a temporary table of colors to not alter the calculations
+    RGBTRIPLE temp[height][width];
+
+    for (int i = 0; i < width; i++)
+    {
+        for (int j = 0; j < height; j++)
+        {
+           int  addblue = 0;
+           int  addgreen = 0;
+           int addred = 0;
+           float counter = 0;
+
+            // sums values of the pixel and 8 neighboring ones, skips iteration if it goes outside the pic
+            for (int k = -1; k < 2; k++)
+            {
+                if (j + k < 0 || j + k > height - 1)
+                {
+                    continue;
+                }
+
+                for (int h = -1; h < 2; h++)
+                {
+                    if (i + h < 0 || i + h > width - 1)
+                    {
+                        continue;
+                    }
+
+                    addblue += image[j + k][i + h].rgbtBlue;
+                    addgreen += image[j + k][i + h].rgbtGreen;
+                    addred += image[j + k][i + h].rgbtRed;
+                    counter++;
+                }
+            }
+
+            // averages the sum to make picture look blurrier
+            temp[j][i].rgbtBlue = round(addblue / counter);
+            temp[j][i].rgbtGreen = round(addgreen / counter);
+            temp[j][i].rgbtRed = round(addred / counter);
+        }
+    }
+
+    //copies values from temporary table
+    for (int i = 0; i < width; i++)
+    {
+        for (int j = 0; j < height; j++)
+        {
+            image[j][i].rgbtBlue = temp[j][i].rgbtBlue;
+            image[j][i].rgbtGreen = temp[j][i].rgbtGreen;
+            image[j][i].rgbtRed = temp[j][i].rgbtRed;
+        }
+    }
+}
