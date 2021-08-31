@@ -4,130 +4,120 @@
 #include <string.h>
 int main(void)
 {
-    
- 
-  int count = 0;
-  
-  long card; //here the card number will be saved
- 
-  printf("Enter a card number: ");
-  scanf("%ld", &card);
- // printf("full card number :  %ld\n",card);
-  long firstnum =card;
-  long change = card;
-  long digitread =card;
-  int sumonly;
-   // the do-while is accurate now
-  int sum=0;
-  int sum1 =0;
-  long replace = digitread;
-  int multisum;
-  int counter = count;
-  long card2 =card;
+    int count = 0;
+    long card; //here the card number will be saved
+    printf("Enter a card number: ");
+    scanf("%ld", &card);
+    long firstnum = card;
+    long change = card;
+    long digitread = card;
+    int sumonly;
+    int sum = 0;
+    int sum1 = 0;
+    long replace = digitread;
+    int multisum;
+    int counter = count;
+    long card2 = card;
   
     do
     {
-     /* Remove last digit of 'num' */
-     /* countingthe total digits */
-    change /= 10;
-    count++;
+        change /= 10;
+        count++;
     } 
-    while(change != 0);
     
-    if (count == 13 || count == 15 || count == 16 )
+    while (change != 0);
+    
+    if (count == 13 || count == 15 || count == 16)
     
     {
     
-    firstnum %= 10;
-   // printf("this is the first number of the card with value of i of 1 = %ld\n",firstnum);
+        firstnum %= 10;
+        // printf("this is the first number of the card with value of i of 1 = %ld\n",firstnum);
     
-    int i =2;  //counetr 
+        int i = 2; //counetr 
 
-     do
-     {
+        do
+        {
     
-     replace = digitread /= 10;
-    // printf("reduced credit statement: %ld\n", digitread);
-     replace %= 10;
-    // printf(" last digit: %ld\n", replace);
-    // printf("coressponding i value: %d\n", i);
-     multisum = replace*2;   //ones with larger numbers
-     sumonly = replace;
-   
-    // printf("this is sum value *2 = %d\n",multisum);
-     int y = multisum;
+            replace = digitread /= 10;
+// printf("reduced credit statement: %ld\n", digitread);
+            replace %= 10;
+            multisum = replace * 2;                         //ones with larger numbers
+            sumonly = replace;
+            int y = multisum;
      
-      if (multisum > 9)
-             {
-            int num1 = multisum % 10;
-            int num2 = multisum / 10;
-            multisum = num1 + num2;
+            if (multisum > 9)
+            {
+                int num1 = multisum % 10;
+                int num2 = multisum / 10;
+                multisum = num1 + num2;
+            }
+            if (i % 2 == 0) 
+            {
+        
+                sum += multisum;
              }
-      if (i%2==0) 
-      {
-         
-          sum+=multisum;
-      }
-          
-     else if (i%2 != 0) {sum1 +=sumonly;}
-     
-     i++;
-     }
-     
-     while( i <= count );
-
-     sum1 += firstnum;
-     //printf("Total digits: %d\n", count);
-     // printf("sum: %d\n", sum);
-     // printf("sum1: %d\n", sum1);
-     int total =0;
-     total = sum + sum1;
-     // printf("total sum %d\n ", total);
-     
-     total %= 10;
-     // printf("total = %d\n",total);
-    
-     long test = pow(10, count -2);
-     long test2 = pow(10, count -1);
-
-     long check = card2 / test2;
-     long check2 = card2 / test;
-    
-    
-     if (total == 0) 
-        {
-        if ((count == 16 || count == 13 ) && check  == 4)
-         {
-           printf("VISA\n");
-         }
-          
-         else if (count == 16 && (check2 >= 51 && check2 <= 55 ))
-         {
-           printf("MASTERCARD\n");
-         }
-         
-         else if (count == 15 && (check2 == 34 || check2 == 37))
-         {
-          printf("AMEX\n");
-          
-         }
-         
-        else 
-        {
-       printf("INVALID\n");
        
-        }}
-         else 
-        {
-       printf("INVALID\n");
+            else if (i % 2 != 0) 
+            {
+                
+                 sum1 += sumonly;
+      
+            }
+           i++;
         }
      
-      } 
+       while ( i <= count);
+
+       sum1 += firstnum;
+//printf("Total digits: %d\n", count);
+// printf("sum1: %d\n", sum1);
+            int total = 0;
+     total = sum + sum1;
+// printf("total sum %d\n ", total);
+     
+     total %= 10;
+// printf("total = %d\n",total);
+    
+        long test = pow(10, count - 2);
+        long test2 = pow(10, count - 1);
+        long check = card2 / test2;
+        long check2 = card2 / test;
+    
+        if (total == 0) 
+        {
+           if ((count == 16 || count == 13 ) && check  == 4)
+            {
+                printf("VISA\n");
+            }
+          
+            else if (count == 16 && (check2 >= 51 && check2 <= 55))
+            {
+                 printf("MASTERCARD\n");
+            }
+         
+            else if (count == 15 && (check2 == 34 || check2 == 37))
+            {
+                 printf("AMEX\n");
+          
+            }
+            else 
+            {
+                 printf("INVALID\n");
+       
+            }
+          
+         }
+         else 
+        {
+            printf("INVALID\n");
+        }
+    } 
     else 
     {
-      printf("INVALID\n");
+        printf("INVALID\n");
  
-     }
+    }
 }         
    
 
